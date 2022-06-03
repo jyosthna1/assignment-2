@@ -15,6 +15,22 @@ class Form extends Component {
     this.setState({searchValue: event.target.value})
   }
 
+  showPasswordList = () => {
+    const {passwordList} = this.state
+    const {passwordListLength} = passwordList.length
+    console.log(passwordListLength)
+
+    return (
+      <div className="no-password-image-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+          alt="no passwords"
+          className="no-password-image"
+        />
+      </div>
+    )
+  }
+
   passwordListContainer = () => {
     const {passwordList, searchValue} = this.state
     const passwordListLength = passwordList.length
@@ -50,6 +66,7 @@ class Form extends Component {
             Show Passwords
           </label>
         </div>
+        {this.showPasswordList()}
       </div>
     )
   }
