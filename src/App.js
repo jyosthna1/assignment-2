@@ -17,16 +17,41 @@ class Form extends Component {
 
   showPasswordList = () => {
     const {passwordList} = this.state
-    const {passwordListLength} = passwordList.length
-    console.log(passwordListLength)
+    const passwordListLength = passwordList.length === 0
 
     return (
-      <div className="no-password-image-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
-          alt="no passwords"
-          className="no-password-image"
-        />
+      <div>
+        {passwordListLength ? (
+          <div className="no-password-image-container">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+              alt="no passwords"
+              className="no-password-image"
+            />
+          </div>
+        ) : (
+          <ul className="passwordList">
+            {passwordList.map(eachItem => (
+              <li className="listItem">
+                <div className="listItemName">
+                  <button className="first-letter" type="button">
+                    {eachItem.userName[0]}
+                  </button>
+                  <div className="details">
+                    <p className="listName">{eachItem.website}</p>
+                    <p className="listName">{eachItem.userName}</p>
+                    <p className="listName">{eachItem.password}</p>
+                  </div>
+                </div>
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/password-manager-delete-img.png"
+                  alt="delete"
+                  className="delete"
+                />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     )
   }
@@ -66,6 +91,7 @@ class Form extends Component {
             Show Passwords
           </label>
         </div>
+
         {this.showPasswordList()}
       </div>
     )
@@ -106,7 +132,6 @@ class Form extends Component {
       userNameInput: '',
       passwordInput: '',
     }))
-    console.log(passwordList)
   }
 
   formContainer = () => {
@@ -156,7 +181,7 @@ class Form extends Component {
             onChange={this.onChangePasswordInput}
           />
         </div>
-        <button className="add-button" type="button">
+        <button className="add-button" type="submit">
           Add
         </button>
       </form>
