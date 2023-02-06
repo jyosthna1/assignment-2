@@ -149,6 +149,7 @@ body {
   width: 22px;
   border: 1px solid #9ba9eb;
   border-radius: 8px;
+  text-align: center;
 }
 .password-length-container {
   display: flex;
@@ -199,4 +200,48 @@ body {
 .no-password-image-container {
   display: flex;
   justify-content: center;
+}
+.passwordList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.listItem {
+  list-style-type: none;
+  border: 1px solid #c3caea;
+  height: 70px;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  padding: 10px;
+  margin-right: 14px;
+  margin-bottom: 14px;
+}
+.first-letter {
+  border: none;
+  background-color: orange;
+  color: #ffffff;
+  font-family: 'Roboto';
+  height: 30px;
+  width: 30px;
+  border-radius: 18px;
+}
+.details {
+  padding: 10px;
+}
+.listName {
+  margin: 0px;
+  padding-bottom: 6px;
+  font-family: 'Roboto';
+  font-size: 10px;
+  color: #ffffff;
+}
+.delete {
+  height: 23px;
+  width: 20px;
+}
+.listItemName {
+  display: flex;
+  align-items: center;
 }
